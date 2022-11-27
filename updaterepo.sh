@@ -28,12 +28,12 @@ UBlue='\033[4;34m'  UPurple='\033[4;35m' UCyan='\033[4;36m'  UWhite='\033[4;37m'
 On_Black='\033[40m' On_Red='\033[41m'    On_Green='\033[42m' On_Yellow='\033[43m'
 On_Blue='\033[44m'  On_Purple='\033[45m' On_Cyan='\033[46m'  On_White='\033[47m'
 
-# go to PKGs dir 
+# go to PKGs dir #
 cd x86_64
 
 echo -e ""
 echo -e "${BCyan}####################################${Color_Off}"
-echo -e "${BCyan}#      updating repo database      #${Color_Off}"
+echo -e "${BCyan}#      Updating Repo database      #${Color_Off}"
 echo -e "${BCyan}####################################${Color_Off}"
 
 # old files to be removed! #
@@ -48,28 +48,37 @@ declare -a OLD_DATABASE=(
 						
 						)
 
-echo -e "${BRed}\n[*] removing old files...\n${Color_Off}"
+echo -e "${BRed}\n[*] Removing Old database Files...\n${Color_Off}"
 
-#  #
+# remove old files #
 for i in ${OLD_DATABASE[@]}; do
 
 	rm $i
 
 done
 
+echo -e "\n${BGreen}[+] Successful Removing ✔"
+sleep 0.5
+
 # add all packages to database  #
-echo -e "${BRed}\n[+] updating pacman database...\n${Color_Off}"
+echo -e "${BRed}\n[+] Updating pacman database...\n${Color_Off}"
 
 repo-add exodia-community-repo.db.tar.gz *.pkg.tar.zst
 
+echo -e "\n${BGreen}[+] Successful Updating ✔"
+sleep 0.5
+
 # remove syslink to avoid any issues #
-echo -e "${BRed}\n[+] removing syslink to avoid any issues...\n${Color_Off}"
+echo -e "${BRed}\n[+] Removing syslink to avoid any Issues...\n${Color_Off}"
 
 rm exodia-community-repo.db exodia-community-repo.files
 
 mv exodia-community-repo.db.tar.gz exodia-community-repo.db
 
 mv exodia-community-repo.files.tar.gz exodia-community-repo.files
+
+echo -e "\n${BGreen}[+] Successful Removing ✔"
+sleep 0.5
 
 # D O N E! #
 echo -e "\n${BGreen}[✔] D O N E \n${Color_Off}"
