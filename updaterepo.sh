@@ -82,4 +82,3 @@ sleep 0.5
 
 # D O N E! #
 echo -e "\n${BGreen}[✔] D O N E \n${Color_Off}"
-
