@@ -48,9 +48,9 @@ declare -a OLD_DATABASE=(
 						
 						)
 
+# remove old files #
 echo -e "${BRed}\n[*] Removing Old database Files...\n${Color_Off}"
 
-# remove old files #
 for i in ${OLD_DATABASE[@]}; do
 
 	rm $i
@@ -62,21 +62,15 @@ sleep 0.5
 
 # add all packages to database  #
 echo -e "${BRed}\n[+] Updating pacman database...\n${Color_Off}"
-
 repo-add exodia-community-repo.db.tar.gz *.pkg.tar.zst
-
 echo -e "\n${BGreen}[+] Successful Updating ✔"
 sleep 0.5
 
 # remove syslink to avoid any issues #
 echo -e "${BRed}\n[+] Removing syslink to avoid any Issues...\n${Color_Off}"
-
 rm exodia-community-repo.db exodia-community-repo.files
-
 mv exodia-community-repo.db.tar.gz exodia-community-repo.db
-
 mv exodia-community-repo.files.tar.gz exodia-community-repo.files
-
 echo -e "\n${BGreen}[+] Successful Removing ✔"
 sleep 0.5
 
